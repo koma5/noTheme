@@ -12,3 +12,21 @@
 		<?php wp_head(); ?>
 
 	</head>
+
+    <body>
+
+        <header>
+
+            <div class="logo">
+                <a href="<?php echo home_url(); ?>">
+                <h1>∞<h1>
+                </a>
+            </div>
+
+            <nav class="nav" role="navigation">
+                <?php wp_nav_menu(); ?>
+
+            </nav>
+
+        </header>
+

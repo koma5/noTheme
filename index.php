@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-<body>
     <main>
         <section>
 
