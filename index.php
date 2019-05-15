@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+<body>
     <main>
         <section>
 
@@ -12,6 +13,9 @@
 				</h2>
                 <?the_content(); ?>
 
+<p class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?> by <?php the_author_posts_link(); ?></span> </p>
+
+
 			</article>
 
             <?php endwhile; else : ?>
@@ -21,4 +25,4 @@
         </section>
 
     </main>
-
+</body>
