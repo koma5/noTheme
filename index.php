@@ -12,7 +12,7 @@
 				</h2>
                 <?the_content(); ?>
 
-<p class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?> by <?php the_author_posts_link(); ?></span> </p>
+<p class="date"><?php the_time('Y-m-j'); ?> <?php the_time(); ?> by <?php the_author_posts_link(); ?></span> </p>
 
 
 			</article>
