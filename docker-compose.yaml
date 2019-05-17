@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.6'
 
 services:
    db:
@@ -15,13 +15,41 @@ services:
        - db
      image: wordpress:latest
      ports:
-       - "8000:80"
+       - "80:80"
      restart: always
      volumes: 
-        - ./:/var/www/html/wp-content/themes/noTheme
+        - wpwww:/var/www/html/
+        - ./:/var/www/html/wp-content/themes/notheme
      environment:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: wordpress
        WORDPRESS_DB_NAME: wordpress
+
+   cli:
+     image: wordpress:cli
+     volumes:
+         - ./:/var/www/html/wp-content/themes/notheme
+         - wpwww:/var/www/html/
+     command: >
+         /bin/bash -c "
+         sleep 30;
+         wp core install --url='http://localhost' --title='localhost' --admin_user='admin' --admin_password='admin' --admin_email='admin@example.org';
+         wp theme activate notheme;"
+     depends_on:
+        - wordpress
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: wordpress
+       WORDPRESS_DB_PASSWORD: wordpress
+       WORDPRESS_DB_NAME: wordpress
+
+volumes:
+    wpwww:
+        driver: local
+        driver_opts:
+            o: bind
+            type: none
+            device: $PWD/wpwww
+
 
