@@ -21,6 +21,8 @@
                 <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
             <?php endif; ?>
 
+            <?php print paginate_links(); ?>
+
         </section>
 
     </main>
