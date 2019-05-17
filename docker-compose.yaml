@@ -31,11 +31,15 @@ services:
      volumes:
          - ./:/var/www/html/wp-content/themes/notheme
          - wpwww:/var/www/html/
+     user: root
      command: >
          /bin/bash -c "
          sleep 30;
-         wp core install --url='http://localhost' --title='localhost' --admin_user='admin' --admin_password='admin' --admin_email='admin@example.org';
-         wp theme activate notheme;"
+         wp core install --allow-root --url='http://localhost' --title='localhost' --admin_user='admin' --admin_password='admin' --admin_email='admin@example.org';
+         wp theme activate --allow-root notheme;
+         wp plugin install --allow-root wordpress-importer --activate;
+         wget https://raw.githubusercontent.com/WPTRT/theme-unit-test/master/themeunittestdata.wordpress.xml;
+         wp import --allow-root themeunittestdata.wordpress.xml --authors=create;"
      depends_on:
         - wordpress
      environment:
