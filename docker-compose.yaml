@@ -38,7 +38,7 @@ services:
          wp core install --allow-root --url='http://localhost' --title='localhost' --admin_user='admin' --admin_password='admin' --admin_email='admin@example.org';
          wp theme activate --allow-root notheme;
          wp plugin install --allow-root wordpress-importer --activate;
-         wp plugin activate --allow-root wordpress-importer
+         wp plugin activate --allow-root wordpress-importer;
          wget https://raw.githubusercontent.com/WPTRT/theme-unit-test/master/themeunittestdata.wordpress.xml;
          wp import --allow-root themeunittestdata.wordpress.xml --authors=create;
          find /var/www/html/ -user root -exec chown 33:33 {} \;"
