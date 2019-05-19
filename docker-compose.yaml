@@ -19,7 +19,7 @@ services:
      restart: always
      volumes: 
         - wpwww:/var/www/html/
-        - ./:/var/www/html/wp-content/themes/notheme
+        - ./:/var/www/html/wp-content/themes/solidnegative
      environment:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: wordpress
@@ -29,14 +29,14 @@ services:
    cli:
      image: wordpress:cli
      volumes:
-         - ./:/var/www/html/wp-content/themes/notheme
+         - ./:/var/www/html/wp-content/themes/solidnegative
          - wpwww:/var/www/html/
      user: root
      command: >
          /bin/bash -c "
          sleep 30;
          wp core install --allow-root --url='http://localhost' --title='localhost' --admin_user='admin' --admin_password='admin' --admin_email='admin@example.org';
-         wp theme activate --allow-root notheme;
+         wp theme activate --allow-root solidnegative;
          wp plugin install --allow-root wordpress-importer --activate;
          wp plugin activate --allow-root wordpress-importer;
          wget https://raw.githubusercontent.com/WPTRT/theme-unit-test/master/themeunittestdata.wordpress.xml;

@@ -19,7 +19,7 @@
 
             <div class="logo">
                 <a href="<?php echo home_url(); ?>">
-                <h1>∞<h1>
+                    <img src="https://picsum.photos/id/648/1000/400" alt="lorem picsum random picture" />
                 </a>
             </div>
 

@@ -1,5 +1,5 @@
 /*
-    Theme Name: noTheme
+    Theme Name: solidNegative
     Theme URI: https://5th.ch/
     Description: noDescription yet.
     Version: 0.0.1
@@ -14,4 +14,17 @@
 
 body {
     font-family: 'sans-serif';
+    background-color: black;
+    color: white;
 }
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+header img {
+    width: 100%;
+    max-width: 900px;
+}
+
